@@ -10,18 +10,18 @@ angular.module('NarrowItDownApp', [])
 NarrowItDownController.$inject = ['MenuSearchService'];
 function NarrowItDownController(MenuSearchService){
   var ctrl = this;
-  ctrl.foundItems = undefined;
+  ctrl.found = undefined;
 
   ctrl.narrowItDown = function(){
       if (!ctrl.searchTerm){
-        ctrl.foundItems = [];
+        ctrl.found = [];
         return;
       }
 
       var promise = MenuSearchService.getMatchedMenuItems(ctrl.searchTerm);
       promise.then(function(foundItems){
 
-        ctrl.foundItems = foundItems;
+        ctrl.found = foundItems;
 
 
       }).catch(function(error){
@@ -30,7 +30,7 @@ function NarrowItDownController(MenuSearchService){
   }
 
   ctrl.removeItem = function (itemIndex) {
-    ctrl.foundItems.splice(itemIndex, 1);
+    ctrl.found.splice(itemIndex, 1);
   };
 };
 

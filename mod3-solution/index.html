@@ -24,8 +24,8 @@
 
     <!-- found-items should be implemented as a component -->
     <div class="clearfix"></div>
-    <div ng-if="ctrl.foundItems.length === 0">Nothing found</div>
-    <found-items ng-if="ctrl.foundItems.length !== 0" found-items="ctrl.foundItems" on-remove="ctrl.removeItem(index)"></found-items>
+    <div ng-if="ctrl.found.length === 0">Nothing found</div>
+    <found-items ng-if="ctrl.found.length !== 0" found-items="ctrl.found" on-remove="ctrl.removeItem(index)"></found-items>
   </div>
 
 </body>
