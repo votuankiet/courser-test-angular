@@ -1,0 +1,9 @@
+<ul>
+  <!--$ctrl is automatically created for the component-->
+  <li ng-repeat="item in $ctrl.allCategories">
+    <!--items is one of the state's names. see routes.js-->
+    <a ui-sref="items({categoryShortName: item.short_name})">
+      {{item.short_name}}, {{item.name}}
+    </a>
+  </li>
+</ul>
