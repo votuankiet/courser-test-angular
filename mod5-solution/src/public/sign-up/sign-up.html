@@ -1,0 +1,71 @@
+<div class="container sign-up">
+  <fieldset>
+    <legend style="color: white;">Sign Up</legend>
+    <form name='regForm' novalidate>
+
+      <input type="text" name="firstName" placeholder="First name"
+        ng-model="signUpCtrl.user.firstName"
+        required
+        minlength="2"
+        ng-maxlength="10">
+        {{ signUpCtrl.user.username }}
+        <span
+          ng-if="(regForm.firstName.$error.minlength || regForm.firstName.$error.required) && regForm.firstName.$touched">
+          First Name must be at least 2 characters long
+        </span>
+        <span ng-if="regForm.firstName.$error.maxlength && regForm.firstName.$touched">
+          First Name must not be longer than 10 characters
+        </span>
+        <br>
+
+      <input type="text" name="lastName" placeholder="Last name"
+        ng-model="signUpCtrl.user.lastName"
+        required
+        minlength="2"
+        ng-maxlength="10">
+        {{ signUpCtrl.user.username }}
+        <span
+          ng-if="(regForm.lastName.$error.minlength || regForm.lastName.$error.required) && regForm.lastName.$touched">
+          Last name must be at least 2 characters long
+        </span>
+        <span ng-if="regForm.lastName.$error.maxlength && regForm.lastName.$touched">
+          Last name must not be longer than 10 characters
+        </span>
+        <br>
+
+
+      <input type="email" name="email" placeholder="Email"
+        ng-model="signUpCtrl.user.email"
+        required>
+        <span ng-if="regForm.email.$invalid && regForm.email.$touched">
+          Must be a valid email address: handle@domain format
+        </span>
+        <br>
+
+      <input type="text" name="phone" placeholder="Phone ###-###-####"
+        ng-model="signUpCtrl.user.phone"
+        pattern="(\d{3})-(\d{3})-(\d{4})">
+        <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+          Phone must be in the format ###-###-####.
+        </span>
+        <br>
+
+      <input type="text" name="menuNumber" placeholder="Favorite Menu Number"
+        ng-model="signUpCtrl.user.menuNumber">
+
+        <span style="color: white">
+          {{signUpCtrl.menuNumberMessage}}
+        </span>
+        <br>
+
+      <button
+        ng-disabled="regForm.$invalid"
+        ng-click="signUpCtrl.submit()">Submit</button>
+
+        <div style="margin-top: 10px; color: white;">
+          {{signUpCtrl.submitMessage}}
+        </div>
+    </form>
+  </fieldset>
+
+</div>
